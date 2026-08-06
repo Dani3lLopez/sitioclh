@@ -27,7 +27,7 @@ jobs:
       - name: Instalar dependencias
         run: npm install
       - name: Construir la web
-        run: npm run build
+        run: npm run build:pages
       - name: Preparar GitHub Pages
         uses: actions/configure-pages@v5
         with:
