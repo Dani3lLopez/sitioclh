@@ -47,7 +47,7 @@ export const members: Member[] = [
     "area": "Marketing",
     "role": "Líder de Marketing",
     "slug": "camila-calvo",
-    "image": "/images/members/camila-calvo.webp",
+    "image": "/images/members/camila-calvo.png",
     "linkedIn": "https://www.linkedin.com/in/camila-calvo-de-la-guardia/",
     "featured": false
   },
@@ -122,7 +122,7 @@ export const members: Member[] = [
     "area": "Negocios Internacionales y Finanzas",
     "role": "Líder Operaciones y Eficiencia",
     "slug": "santiago-narino-rivera",
-    "image": "/images/members/santiago-narino-rivera.webp",
+    "image": "/images/members/santiago-narino-rivera.jpeg",
     "video": "/videos/santiago-narino-rivera.mp4",
     "linkedIn": "https://www.linkedin.com/in/santiago-nari%C3%B1o-rivera-10351429b/",
     "featured": false

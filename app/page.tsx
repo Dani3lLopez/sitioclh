@@ -96,6 +96,79 @@ const memberInitials = (name: string) => {
 
 const assetBase = import.meta.env.BASE_URL.replace(/\/$/, "");
 const assetPath = (path: string) => path.startsWith("http") ? path : `${assetBase}${path.startsWith("/") ? path : `/${path}`}`;
+const contactEmail = "team@clhglobal.org";
+
+const formTitles = {
+  reto: "Reto para organizaciones",
+  idea: "Idea para CLH",
+  contacto: "Consulta general",
+} as const;
+
+const formFieldLabels: Record<string, string> = {
+  fullName: "Nombre y apellidos",
+  email: "Correo electrónico",
+  organization: "Organización",
+  country: "País",
+  solution: "Aplicación de interés",
+  challenge: "Reto o necesidad",
+  university: "Universidad u organización",
+  ideaTitle: "Título de la idea",
+  problem: "Problema identificado",
+  proposal: "Propuesta y liderazgo",
+  video: "Video de presentacion",
+  reason: "Motivo de la consulta",
+  message: "Mensaje",
+  privacy: "Política de privacidad aceptada",
+  confidentiality: "Confirmacion de confidencialidad",
+};
+
+const mailtoValue = (value: FormDataEntryValue) => {
+  if (typeof value === "string") return value.trim() || "No indicado";
+  return value.name ? value.name : "Archivo no adjuntado";
+};
+
+const buildMailto = (kind: "reto" | "idea" | "contacto", form: HTMLFormElement) => {
+  const data = new FormData(form);
+  const fullName = String(data.get("fullName") || "").trim();
+  const reason = String(data.get("reason") || "").trim();
+  const subjectDetail = fullName || reason || formTitles[kind];
+  const subject = `[CLH] ${formTitles[kind]} - ${subjectDetail}`;
+  const rows = Array.from(data.entries())
+    .filter(([key]) => key !== "privacy" && key !== "confidentiality")
+    .map(([key, value]) => `- ${formFieldLabels[key] ?? key}: ${mailtoValue(value)}`)
+    .join("\n");
+  const confirmations = [
+    data.get("privacy") ? "- Acepto la política de privacidad y el tratamiento de estos datos." : "",
+    data.get("confidentiality") ? "- Confirmo que no comparto información confidencial de terceros." : "",
+  ].filter(Boolean).join("\n");
+  const body = [
+    "Hola equipo CLH,",
+    "",
+    "Se ha enviado una nueva solicitud desde el formulario web.",
+    "",
+    `Tipo de formulario: ${formTitles[kind]}`,
+    `Fecha: ${new Date().toLocaleString("es-ES")}`,
+    "",
+    "Datos recibidos:",
+    rows,
+    "",
+    "Confirmaciones:",
+    confirmations || "No aplica",
+    "",
+    "Nota: este mensaje fue generado automáticamente desde el formulario web de CLH.",
+  ].join("\n");
+
+  return `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+};
+
+const openMailto = (href: string) => {
+  const link = document.createElement("a");
+  link.href = href;
+  link.style.display = "none";
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+};
 
 const memberPilotProfiles: Record<string, {
   status: string;
@@ -2195,34 +2268,38 @@ function PageHero({ eyebrow, title, body, image, imageAlt = "", imageCredit, ima
 
 function MiniForm({ kind, initialSolution = "" }: { kind: "reto" | "idea" | "contacto"; initialSolution?: string }) {
   const [sent, setSent] = useState(false);
-  const [reason, setReason] = useState("comunidad");
+  const [reason, setReason] = useState("Quiero conocer la comunidad");
   const [solution, setSolution] = useState(initialSolution);
-  const submit = (event: FormEvent) => { event.preventDefault(); setSent(true); };
-  if (sent) return <div className="form-success" role="status"><span>✓</span><h3>{kind === "reto" ? "Gracias por compartir el contexto." : kind === "idea" ? "Tu idea ya está en movimiento." : "Hemos recibido tu mensaje."}</h3><p>Esta confirmación muestra el comportamiento previsto. En la web final, la consulta se enviará al equipo responsable.</p><Button variant="secondary" onClick={() => setSent(false)}>Enviar otra respuesta</Button></div>;
+  const submit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    openMailto(buildMailto(kind, event.currentTarget));
+    window.setTimeout(() => setSent(true), 600);
+  };
+  if (sent) return <div className="form-success" role="status"><span>✓</span><h3>{kind === "reto" ? "Tu reto quedó listo para enviar." : kind === "idea" ? "Tu idea quedó lista para enviar." : "Tu consulta quedó lista para enviar."}</h3><p>Se abrió un correo dirigido a team@clhglobal.org con los datos del formulario ya organizados. Revisa el mensaje en tu cliente de correo y envíalo.</p><Button variant="secondary" onClick={() => setSent(false)}>Enviar otra respuesta</Button></div>;
   return <form className="prototype-form" onSubmit={submit}>
     <div className="field-grid">
-      <label>Nombre y apellidos<input required placeholder="Escribe tu nombre" /></label>
-      <label>{kind === "reto" ? "Correo profesional" : "Correo electrónico"}<input required type="email" placeholder="nombre@correo.com" /></label>
+      <label>Nombre y apellidos<input name="fullName" required placeholder="Escribe tu nombre" /></label>
+      <label>{kind === "reto" ? "Correo profesional" : "Correo electrónico"}<input name="email" required type="email" placeholder="nombre@correo.com" /></label>
     </div>
     {kind === "reto" && <>
-      <div className="field-grid"><label>Organización<input required placeholder="Nombre de la organización" /></label><label>País<input required placeholder="País" /></label></div>
-      <label>Aplicación de interés<select required value={solution} onChange={(event) => setSolution(event.target.value)}><option value="" disabled>Selecciona una aplicación</option><option>Activación universitaria internacional</option><option>Investigación sobre jóvenes de 18 a 25 años</option><option>Programas de embajadores</option><option>Retos y proyectos con talento joven</option><option>Otra necesidad</option></select></label>
-      <label>¿Qué quieres entender, activar o construir?<textarea required rows={5} placeholder="Cuéntanos el reto, los mercados de interés y el resultado que buscas." /></label>
+      <div className="field-grid"><label>Organización<input name="organization" required placeholder="Nombre de la organización" /></label><label>País<input name="country" required placeholder="País" /></label></div>
+      <label>Aplicación de interés<select name="solution" required value={solution} onChange={(event) => setSolution(event.target.value)}><option value="" disabled>Selecciona una aplicación</option><option>Activación universitaria internacional</option><option>Investigación sobre jóvenes de 18 a 25 años</option><option>Programas de embajadores</option><option>Retos y proyectos con talento joven</option><option>Otra necesidad</option></select></label>
+      <label>¿Qué quieres entender, activar o construir?<textarea name="challenge" required rows={5} placeholder="Cuéntanos el reto, los mercados de interés y el resultado que buscas." /></label>
     </>}
     {kind === "idea" && <>
-      <div className="field-grid"><label>País<input required placeholder="País" /></label><label>Universidad u organización<input placeholder="Opcional" /></label></div>
-      <label>Título de la idea<input required placeholder="Una frase que permita entenderla" /></label>
-      <label>¿Qué problema has identificado?<textarea required rows={3} placeholder="Describe el problema con claridad." /></label>
-      <label>¿Qué propones y qué parte estás dispuesto a liderar?<textarea required rows={5} placeholder="Explica el primer paso y tu papel." /></label>
-      <label className="video-upload">Vídeo de presentación · máximo 1 minuto<input required type="file" accept="video/mp4,video/quicktime,video/webm" /><span>Resume el problema, tu propuesta y la parte que quieres liderar. Formatos: MP4, MOV o WebM.</span></label>
+      <div className="field-grid"><label>País<input name="country" required placeholder="País" /></label><label>Universidad u organización<input name="university" placeholder="Opcional" /></label></div>
+      <label>Título de la idea<input name="ideaTitle" required placeholder="Una frase que permita entenderla" /></label>
+      <label>¿Qué problema has identificado?<textarea name="problem" required rows={3} placeholder="Describe el problema con claridad." /></label>
+      <label>¿Qué propones y qué parte estás dispuesto a liderar?<textarea name="proposal" required rows={5} placeholder="Explica el primer paso y tu papel." /></label>
+      <label className="video-upload">Vídeo de presentación · máximo 1 minuto<input name="video" required type="file" accept="video/mp4,video/quicktime,video/webm" /><span>Resume el problema, tu propuesta y la parte que quieres liderar. Formatos: MP4, MOV o WebM.</span></label>
     </>}
     {kind === "contacto" && <>
-      <label>Motivo de la consulta<select value={reason} onChange={(e) => setReason(e.target.value)}><option value="comunidad">Quiero conocer la comunidad</option><option value="empresa">Represento a una empresa o institución</option><option value="universidad">Represento a una universidad</option><option value="mentor">Quiero colaborar como profesional o mentor</option><option value="prensa">Prensa y otras consultas</option></select></label>
-      {(reason === "empresa" || reason === "universidad") && <label>Organización<input required placeholder="Nombre de la organización" /></label>}
-      <label>Mensaje<textarea required rows={5} placeholder="Comparte el contexto necesario para dirigir la consulta." /></label>
+      <label>Motivo de la consulta<select name="reason" value={reason} onChange={(e) => setReason(e.target.value)}><option value="Quiero conocer la comunidad">Quiero conocer la comunidad</option><option value="Represento a una empresa o institución">Represento a una empresa o institución</option><option value="Represento a una universidad">Represento a una universidad</option><option value="Quiero colaborar como profesional o mentor">Quiero colaborar como profesional o mentor</option><option value="Prensa y otras consultas">Prensa y otras consultas</option></select></label>
+      {(reason === "Represento a una empresa o institución" || reason === "Represento a una universidad") && <label>Organización<input name="organization" required placeholder="Nombre de la organización" /></label>}
+      <label>Mensaje<textarea name="message" required rows={5} placeholder="Comparte el contexto necesario para dirigir la consulta." /></label>
     </>}
-    <label className="check"><input type="checkbox" required /><span>Acepto la política de privacidad y el tratamiento de estos datos para responder a mi solicitud.</span></label>
-    {kind === "idea" && <label className="check"><input type="checkbox" required /><span>Confirmo que no comparto información confidencial de terceros.</span></label>}
+    <label className="check"><input name="privacy" type="checkbox" required /><span>Acepto la política de privacidad y el tratamiento de estos datos para responder a mi solicitud.</span></label>
+    {kind === "idea" && <label className="check"><input name="confidentiality" type="checkbox" required /><span>Confirmo que no comparto información confidencial de terceros.</span></label>}
     <Button type="submit">{kind === "reto" ? "Enviar el reto" : kind === "idea" ? "Presentar mi idea" : "Enviar consulta"}</Button>
   </form>;
 }
@@ -2239,8 +2316,8 @@ function Inicio({ go }: { go: (page: PageKey) => void }) {
         </div>
         <div className="hero-portraits" aria-label="Tres miembros de la Comunidad de Líderes Hispanoamericanos">
           <article><img src={assetPath("/images/members/michelle-rogel.webp")} alt="Michelle Rogel" /><div><strong>Michelle Rogel</strong><span>México</span></div></article>
-          <article><img src={assetPath("/images/members/camila-calvo.webp")} alt="Camila Calvo" /><div><strong>Camila Calvo</strong><span>Panamá</span></div></article>
-          <article><img src={assetPath("/images/members/santiago-narino-rivera.webp")} alt="Santiago Nariño Rivera" /><div><strong>Santiago Nariño Rivera</strong><span>Colombia</span></div></article>
+          <article><img src={assetPath("/images/members/camila-calvo.png")} alt="Camila Calvo" /><div><strong>Camila Calvo</strong><span>Panamá</span></div></article>
+          <article><img src={assetPath("/images/members/santiago-narino-rivera.jpeg")} alt="Santiago Nariño Rivera" /><div><strong>Santiago Nariño Rivera</strong><span>Colombia</span></div></article>
           <div className="portrait-metric"><strong>+100</strong><span>líderes · 14 países</span></div>
         </div>
       </div>
@@ -2280,7 +2357,7 @@ function Inicio({ go }: { go: (page: PageKey) => void }) {
       <div className="shell international-grid">
         <div className="international-image" role="img" aria-label="Miembros de CLH de Colombia, Argentina, Perú y República Dominicana">
           <div className="international-collage" aria-hidden="true">
-            <img src={assetPath("/images/members/santiago-narino-rivera.webp")} alt="" />
+            <img src={assetPath("/images/members/santiago-narino-rivera.jpeg")} alt="" />
             <img src={assetPath("/images/members/renata-berho.webp")} alt="" />
             <img src={assetPath("/images/members/valeria-riojas-davila.webp")} alt="" />
             <img src={assetPath("/images/members/vivianna-reynold.webp")} alt="" />
@@ -2465,7 +2542,7 @@ function Beway({ go }: { go: (page: PageKey) => void }) {
   ];
   const principles = ["Creamos comunidad", "Impulsamos la innovación", "Generamos oportunidades", "Construimos el futuro"];
   return <div className="beway-page">
-    <section className="beway-hero"><div className="shell beway-hero-grid"><div className="beway-hero-copy"><span className="beway-status">Lanzamiento · Julio de 2027</span><p className="beway-kicker">Ecosistema de talento, innovación y oportunidades</p><h1>Empresas y universitarios conectados por lo que pueden construir juntos.</h1><p>Una plataforma impulsada desde CLH para activar proyectos, entender a la nueva generación y descubrir talento mediante evidencias reales de ejecución.</p><div className="button-row"><Button variant="light" onClick={() => go("organizaciones")}>Soy una empresa</Button><Button variant="ghost" onClick={() => document.getElementById("beway-modelo")?.scrollIntoView({behavior:"smooth"})}>Conocer el proyecto</Button></div></div><div className="beway-brand-lockup"><img src={assetPath("/images/beway-logo-dark-fhd.jpg")} alt="Beway · Ecosistema de talento, innovación y oportunidades" /></div></div><div className="shell beway-principles">{principles.map((principle, i) => <div key={principle}><span>{String(i + 1).padStart(2, "0")}</span><strong>{principle}</strong></div>)}</div></section>
+    <section className="beway-hero"><div className="shell beway-hero-grid"><div className="beway-hero-copy"><span className="beway-status">Lanzamiento · Julio de 2027</span><p className="beway-kicker">Ecosistema de talento, innovación y oportunidades</p><h1>Empresas y universitarios conectados por lo que pueden construir juntos.</h1><p>Una plataforma impulsada desde CLH para activar proyectos, entender a la nueva generación y descubrir talento mediante evidencias reales de ejecución.</p><div className="button-row"><Button variant="light" onClick={() => go("organizaciones")}>Soy una empresa</Button><Button variant="ghost" onClick={() => document.getElementById("beway-modelo")?.scrollIntoView({behavior:"smooth"})}>Conocer el proyecto</Button></div></div><div className="beway-brand-lockup"><img src={assetPath("/images/beway-logo-dark-fhd.png")} alt="Beway · Ecosistema de talento, innovación y oportunidades" /></div></div><div className="shell beway-principles">{principles.map((principle, i) => <div key={principle}><span>{String(i + 1).padStart(2, "0")}</span><strong>{principle}</strong></div>)}</div></section>
     <section className="section shell split-story"><div><Kicker>El punto de partida</Kicker><h2>La relación entre universidad y empresa necesita más espacios que una oferta de empleo.</h2></div><div><p>Las empresas necesitan entender cómo piensa la nueva generación, validar productos, activar su presencia en universidades y observar cómo trabaja una persona antes de contratarla.</p><p>Los universitarios necesitan conocer mejor a las organizaciones, aportar valor antes de graduarse y demostrar su capacidad a través de proyectos reales. Beway crea un canal continuo para que esas necesidades se encuentren.</p></div></section>
     <section id="beway-modelo" className="section soft-section"><div className="shell"><SectionTitle kicker="El modelo" title="Una infraestructura de colaboración entre empresas y universitarios." body="Cada módulo genera una interacción concreta y deja una evidencia que mejora la siguiente decisión." /><div className="module-grid">{modules.map((module) => <article key={module[0]}><span>{module[0]}</span><h3>{module[1]}</h3><p>{module[2]}</p></article>)}</div></div></section>
     <section className="section shell dual-audience"><div className="audience-card audience-company"><Kicker>Para empresas</Kicker><h2>Entender a la nueva generación y verla trabajar.</h2><p>Activar embajadores, plantear retos, validar una idea y descubrir perfiles a partir de su comportamiento dentro de proyectos.</p><ul className="clean-list"><li>Presencia universitaria coordinada.</li><li>Investigación sobre la generación de 18 a 25 años.</li><li>Retos con entregas estructuradas.</li><li>Talento demostrado en acción.</li></ul><Button onClick={() => go("organizaciones")}>Explorar una colaboración</Button></div><div className="audience-card audience-student"><Kicker>Para universitarios</Kicker><h2>Construir una trayectoria que se pueda ver.</h2><p>Cada participación puede convertirse en una evidencia: un reto resuelto, una investigación bien ejecutada, una idea desarrollada o una responsabilidad asumida.</p><p>La persona puede conocer empresas más allá de sus campañas institucionales y presentar su capacidad antes de que exista una vacante.</p></div></section>
