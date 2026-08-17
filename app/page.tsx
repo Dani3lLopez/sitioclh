@@ -127,47 +127,28 @@ const mailtoValue = (value: FormDataEntryValue) => {
   return value.name ? value.name : "Archivo no adjuntado";
 };
 
-const buildMailto = (kind: "reto" | "idea" | "contacto", form: HTMLFormElement) => {
+const buildPayload = (kind: "reto" | "idea" | "contacto", form: HTMLFormElement) => {
   const data = new FormData(form);
-  const fullName = String(data.get("fullName") || "").trim();
-  const reason = String(data.get("reason") || "").trim();
-  const subjectDetail = fullName || reason || formTitles[kind];
-  const subject = `[CLH] ${formTitles[kind]} - ${subjectDetail}`;
-  const rows = Array.from(data.entries())
-    .filter(([key]) => key !== "privacy" && key !== "confidentiality")
-    .map(([key, value]) => `- ${formFieldLabels[key] ?? key}: ${mailtoValue(value)}`)
-    .join("\n");
-  const confirmations = [
-    data.get("privacy") ? "- Acepto la política de privacidad y el tratamiento de estos datos." : "",
-    data.get("confidentiality") ? "- Confirmo que no comparto información confidencial de terceros." : "",
-  ].filter(Boolean).join("\n");
-  const body = [
-    "Hola equipo CLH,",
-    "",
-    "Se ha enviado una nueva solicitud desde el formulario web.",
-    "",
-    `Tipo de formulario: ${formTitles[kind]}`,
-    `Fecha: ${new Date().toLocaleString("es-ES")}`,
-    "",
-    "Datos recibidos:",
-    rows,
-    "",
-    "Confirmaciones:",
-    confirmations || "No aplica",
-    "",
-    "Nota: este mensaje fue generado automáticamente desde el formulario web de CLH.",
-  ].join("\n");
-
-  return `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  const fields: Record<string, string> = {};
+  data.forEach((value, key) => {
+    if (key === "privacy" || key === "confidentiality" || key === "video") return;
+    fields[key] = mailtoValue(value);
+  });
+  return {
+    kind,
+    fields,
+    privacy: Boolean(data.get("privacy")),
+    confidentiality: Boolean(data.get("confidentiality")),
+  };
 };
 
-const openMailto = (href: string) => {
-  const link = document.createElement("a");
-  link.href = href;
-  link.style.display = "none";
-  document.body.appendChild(link);
-  link.click();
-  link.remove();
+const sendFormEmail = async (payload: ReturnType<typeof buildPayload>) => {
+  const response = await fetch("/api/send-email", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+  if (!response.ok) throw new Error("No se pudo enviar el formulario");
 };
 
 const memberPilotProfiles: Record<string, {
@@ -2230,8 +2211,8 @@ const memberPilotProfiles: Record<string, {
   }
 };
 
-function Button({ children, onClick, variant = "primary", type = "button" }: { children: ReactNode; onClick?: () => void; variant?: "primary" | "secondary" | "light" | "ghost"; type?: "button" | "submit" }) {
-  return <button type={type} className={`button button-${variant}`} onClick={onClick}>{children}<span aria-hidden="true">↗</span></button>;
+function Button({ children, onClick, variant = "primary", type = "button", disabled = false }: { children: ReactNode; onClick?: () => void; variant?: "primary" | "secondary" | "light" | "ghost"; type?: "button" | "submit"; disabled?: boolean }) {
+  return <button type={type} disabled={disabled} className={`button button-${variant}`} onClick={onClick}>{children}<span aria-hidden="true">↗</span></button>;
 }
 
 function Kicker({ children }: { children: ReactNode }) {
@@ -2268,15 +2249,26 @@ function PageHero({ eyebrow, title, body, image, imageAlt = "", imageCredit, ima
 
 function MiniForm({ kind, initialSolution = "" }: { kind: "reto" | "idea" | "contacto"; initialSolution?: string }) {
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState(false);
   const [reason, setReason] = useState("Quiero conocer la comunidad");
   const [solution, setSolution] = useState(initialSolution);
-  const submit = (event: FormEvent<HTMLFormElement>) => {
+  const submit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    openMailto(buildMailto(kind, event.currentTarget));
-    window.setTimeout(() => setSent(true), 600);
+    setError(false);
+    setSending(true);
+    try {
+      await sendFormEmail(buildPayload(kind, event.currentTarget));
+      setSent(true);
+    } catch {
+      setError(true);
+    } finally {
+      setSending(false);
+    }
   };
-  if (sent) return <div className="form-success" role="status"><span>✓</span><h3>{kind === "reto" ? "Tu reto quedó listo para enviar." : kind === "idea" ? "Tu idea quedó lista para enviar." : "Tu consulta quedó lista para enviar."}</h3><p>Se abrió un correo dirigido a team@clhglobal.org con los datos del formulario ya organizados. Revisa el mensaje en tu cliente de correo y envíalo.</p><Button variant="secondary" onClick={() => setSent(false)}>Enviar otra respuesta</Button></div>;
-  return <form className="prototype-form" onSubmit={submit}>
+  if (sent) return <div className="form-success" role="status"><span>✓</span><h3>{kind === "reto" ? "Tu reto fue enviado." : kind === "idea" ? "Tu idea fue enviada." : "Tu consulta fue enviada."}</h3><p>Tu mensaje se envió automáticamente al equipo de CLH (team@clhglobal.org). Te responderemos a la brevedad.</p><Button variant="secondary" onClick={() => setSent(false)}>Enviar otra respuesta</Button></div>;
+ 
+ return <form className="prototype-form" onSubmit={submit}>
     <div className="field-grid">
       <label>Nombre y apellidos<input name="fullName" required placeholder="Escribe tu nombre" /></label>
       <label>{kind === "reto" ? "Correo profesional" : "Correo electrónico"}<input name="email" required type="email" placeholder="nombre@correo.com" /></label>
@@ -2300,7 +2292,8 @@ function MiniForm({ kind, initialSolution = "" }: { kind: "reto" | "idea" | "con
     </>}
     <label className="check"><input name="privacy" type="checkbox" required /><span>Acepto la política de privacidad y el tratamiento de estos datos para responder a mi solicitud.</span></label>
     {kind === "idea" && <label className="check"><input name="confidentiality" type="checkbox" required /><span>Confirmo que no comparto información confidencial de terceros.</span></label>}
-    <Button type="submit">{kind === "reto" ? "Enviar el reto" : kind === "idea" ? "Presentar mi idea" : "Enviar consulta"}</Button>
+    {error && <p className="form-error" role="alert">No pudimos enviar el formulario. Probá de nuevo en unos segundos.</p>}
+    <Button type="submit" disabled={sending}>{sending ? "Enviando..." : kind === "reto" ? "Enviar el reto" : kind === "idea" ? "Presentar mi idea" : "Enviar consulta"}</Button>
   </form>;
 }
 
