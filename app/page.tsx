@@ -3,6 +3,7 @@
 import { FormEvent, ReactNode, useEffect, useMemo, useState } from "react";
 import { createPortal } from "react-dom";
 import { members, type Member } from "./members-data";
+import { sortMembers } from "./member-order";
 
 type PageKey =
   | "inicio"
@@ -2571,7 +2572,7 @@ const hiddenMemberSlugs = new Set([
   "stephany-cajamarca",
 ]);
 
-const publicMembers = members.filter((member) => !hiddenMemberSlugs.has(member.slug || memberSlug(member.name)));
+const publicMembers = sortMembers(members.filter((member) => !hiddenMemberSlugs.has(member.slug || memberSlug(member.name))));
 
 function Miembros({ go }: { go: (page: PageKey) => void }) {
   const [country, setCountry] = useState("Todos");
