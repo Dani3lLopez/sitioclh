@@ -102,6 +102,18 @@ export const members: Member[] = [
     "featured": false
   },
   {
+    "id": "CLH-092",
+    "name": "Montse Coronado",
+    "country": "España",
+    "university": "ESIC Business & Marketing School",
+    "area": "Marketing digital",
+    "role": "Líder de Marketing",
+    "slug": "montse-coronado",
+    "image": null,
+    "linkedIn": "https://www.linkedin.com/in/montse-coronado-0b9b56203",
+    "featured": false
+  },
+  {
     "id": "CLH-011",
     "name": "Renata Ana Emilia Berho",
     "country": "Argentina",
@@ -137,6 +149,18 @@ export const members: Member[] = [
     "slug": "adrian-alava",
     "image": null,
     "linkedIn": "https://www.linkedin.com/in/adrian-alava-93a64b312/",
+    "featured": false
+  },
+  {
+    "id": "CLH-079",
+    "name": "Andrea Venegas",
+    "country": "España",
+    "university": "Universidad de Granada",
+    "area": "Criminología y Seguridad",
+    "role": "Marketing",
+    "slug": "andrea-venegas",
+    "image": null,
+    "linkedIn": "https://www.linkedin.com/in/andrea-venegas-de-la-rosa-a34162365",
     "featured": false
   },
   {
@@ -267,6 +291,18 @@ export const members: Member[] = [
     "linkedIn": "https://www.linkedin.com/in/gabriela-gallardo-96a7842a5/",
     "featured": false,
     "video": "/videos/gabriela-gallardo.mp4"
+  },
+  {
+    "id": "CLH-090",
+    "name": "Gerónimo Urti",
+    "country": "Chile",
+    "university": "Universidad Adolfo Ibáñez",
+    "area": "Ingeniería Aeroespacial y Tecnología",
+    "role": "Tecnología e Innovación",
+    "slug": "geronimo-urti",
+    "image": null,
+    "linkedIn": "https://www.linkedin.com/in/gerónimo-urti-cestau-5a91ba205",
+    "featured": false
   },
   {
     "id": "CLH-067",

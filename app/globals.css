@@ -38,8 +38,7 @@ img { display: block; max-width: 100%; }
 .site-header { position: sticky; top: 0; z-index: 30; background: rgba(247,245,240,.96); border-bottom: 1px solid rgba(0,0,51,.12); backdrop-filter: blur(16px); }
 .header-inner { min-height: 80px; display: flex; align-items: center; justify-content: space-between; gap: 26px; }
 .brand { border: 0; background: transparent; display: flex; align-items: center; gap: 12px; padding: 0; cursor: pointer; text-align: left; flex: 0 0 auto; }
-.brand strong { font-size: 28px; letter-spacing: -.06em; color: var(--navy); }
-.brand span { font-size: 8px; line-height: 1.2; text-transform: uppercase; letter-spacing: .12em; color: var(--navy); }
+.brand img { width: 200px; height: auto; }
 .main-nav { display: flex; align-items: center; gap: 2px; }
 .main-nav > button, .nav-group > button { border: 0; background: transparent; padding: 29px 11px 27px; font-size: 13px; cursor: pointer; white-space: nowrap; border-bottom: 3px solid transparent; }
 .main-nav > button.active, .nav-group > button.active { border-bottom-color: var(--gold); color: var(--navy); }
@@ -524,7 +523,7 @@ img { display: block; max-width: 100%; }
 
 @media (max-width: 600px) {
   .announcement span { display: none; }
-  .brand span { display: none; }
+  .brand img { width: 180px; }
   .home-hero { padding-top: 20px; }
   .home-hero-copy h1, .page-hero-copy h1 { font-size: 43px; }
   .section-title h2, .split-story h2, .org-teaser h2, .international-grid h2, .capital-detail h2, .commitment h2, .form-intro h2, .status-panel h2, .audience-card h2, .audience-split h2, .beway-community h2, .org-week h2 { font-size: 38px; }

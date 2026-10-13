@@ -164,6 +164,96 @@ const memberPilotProfiles: Record<string, {
   video?: string;
   links?: { label: string; href: string }[];
 }> = {
+  "andrea-venegas": {
+    "status": "Marketing",
+    "headline": "Criminóloga especializada en seguridad, prevención del extremismo violento y cooperación internacional",
+    "bio": "Andrea Venegas de la Rosa es graduada en Criminología y Seguridad y actualmente cursa un Máster en Altos Estudios Internacionales y Europeos. Su trayectoria académica se ha centrado en la seguridad, el terrorismo y el extremismo violento, con especial interés en la prevención de la radicalización y en la incorporación de la perspectiva de género en las políticas de prevención. Cuenta con experiencia en investigación y análisis de cuestiones relacionadas con el yihadismo, el extremismo de extrema derecha y la participación de las mujeres en estos fenómenos. También está interesada en la cooperación internacional, las organizaciones multilaterales y el diseño de políticas públicas orientadas a la prevención y la seguridad. Busca seguir desarrollándose en entornos internacionales y multidisciplinares, aportando capacidad de análisis, investigación y trabajo en equipo.",
+    "motivation": "Crear conexiones y colaboraciones entre profesionales de España e Hispanoamérica, participando en proyectos e iniciativas que impulsen el intercambio de conocimientos, oportunidades y experiencias en el ámbito internacional.",
+    "contribution": [
+      "Conocimientos en criminología, seguridad, terrorismo, extremismo violento, prevención de la radicalización, perspectiva de género, análisis de políticas públicas y cooperación internacional, junto con capacidad de investigación y análisis."
+    ],
+    "collaboration": "2 horas por semana",
+    "evidence": [
+      {
+        "title": "Intereses",
+        "detail": "Cooperación internacional, relaciones España-Hispanoamérica, proyectos internacionales, desarrollo y cooperación, asuntos internacionales, seguridad, políticas públicas, Unión Europea, igualdad de género, proyectos multilaterales"
+      },
+      {
+        "title": "Habilidades",
+        "detail": "Investigación, análisis, comunicación, redacción, gestión de información, análisis comparativo, organización, trabajo en equipo, pensamiento crítico, gestión de proyectos"
+      },
+      {
+        "title": "Idiomas",
+        "detail": "español, inglés"
+      }
+    ],
+    "links": [
+      {
+        "label": "LinkedIn",
+        "href": "https://www.linkedin.com/in/andrea-venegas-de-la-rosa-a34162365"
+      }
+    ]
+  },
+  "geronimo-urti": {
+    "status": "Tecnología e Innovación",
+    "headline": "Estudiante de Ingeniería Civil Mecánica | Innovación, ingeniería aeroespacial y liderazgo de equipos | Uruguay / Chile",
+    "bio": "Gerónimo Urti Cestau es estudiante de Ingeniería Civil Mecánica en la Universidad Adolfo Ibáñez, con foco en tecnología aeroespacial, robótica e innovación. De nacionalidad mexicana y uruguaya, vivió en Argentina y hoy vive en Chile, y combina formación técnica con liderazgo de equipos interdisciplinarios. Ha liderado el desarrollo de un sistema de drones autónomos para la detección temprana de incendios forestales y participa en el diseño estructural de un nanosatélite universitario. Actualmente impulsa la fundación de NEXO UAI, un club de innovación interdisciplinario, y es Community & Engagement Coordinator en Space Pathways | Rutas al Espacio, iniciativa del Space Generation Advisory Council (SGAC) Chile que acerca a nuevas generaciones las trayectorias de profesionales del sector espacial chileno. Fuera de lo académico, juega rugby competitivo en Old Locks.",
+    "motivation": "Quiero construir espacios donde el talento joven encuentre con quién trabajar, sin importar en qué país o universidad esté. Creo que la tecnología puede acercar a las personas correctas, y que las mejores ideas nacen cuando se juntan miradas de distintos rincones de Hispanoamérica.",
+    "contribution": [
+      "Aporto experiencia desarrollando soluciones con tecnología, IA y automatización, y llevando ideas hasta prototipos que funcionan. Haber vivido en cuatro países me dejó facilidad para conectar personas de contextos distintos y armar equipos que trabajen bien juntos, estén donde estén."
+    ],
+    "collaboration": "2-4 horas por semana, disponible para proyectos puntuales, alianzas y actividades de la comunidad.",
+    "evidence": [
+      {
+        "title": "Intereses",
+        "detail": "Innovación, Industria espacial, Tecnología aeroespacial, Inteligencia artificial, Physical AI, Sistemas autónomos, Robótica, Emprendimiento tecnológico, Integración latinoamericana"
+      },
+      {
+        "title": "Habilidades",
+        "detail": "Liderazgo de equipos, Formación de equipos interdisciplinarios, Desarrollo de prototipos, Automatización con IA, Diseño mecánico y CAD, Programación, Electrónica y hardware, Gestión de proyectos, Creación de comunidades, Networking, Comunicación técnica, Resolución de problemas"
+      },
+      {
+        "title": "Idiomas",
+        "detail": "Español, inglés"
+      }
+    ],
+    "links": [
+      {
+        "label": "LinkedIn",
+        "href": "https://www.linkedin.com/in/gerónimo-urti-cestau-5a91ba205"
+      }
+    ]
+  },
+  "montse-coronado": {
+    "status": "Líder de Marketing",
+    "headline": "Emprendimiento social | Comunicación y marketing digital",
+    "bio": "Montse Coronado es profesional de la comunicación y las relaciones públicas, nacida en México y formada en España. Es graduada en Comunicación y Relaciones Públicas y actualmente cursa un Máster en Marketing y Gestión Digital, donde continúa desarrollando su perfil estratégico y creativo.\n\nSu trayectoria combina la comunicación, el marketing digital y una fuerte vocación por generar impacto positivo en las personas. Le apasiona el emprendimiento social y la creación de proyectos que conecten, inspiren y aporten valor a través de las relaciones humanas y la colaboración.\n\nCuenta con experiencia en estrategias de comunicación digital, creación de contenidos y gestión de redes sociales, y participa activamente en iniciativas de voluntariado y proyectos con propósito social. También disfruta compartir ideas y conocimientos a través de charlas y espacios de encuentro.\n\nMontserrat busca impulsar proyectos que unan estrategia, innovación y propósito para construir conexiones significativas y generar un impacto positivo en la sociedad.",
+    "motivation": "Quiero construir una comunidad y entornos donde las personas se sientan capaces de descubrir su propósito, desarrollar su potencial y perseguir sus metas con confianza. Me gustaría crear espacios de aprendizaje y acompañamiento en los que, a través de la motivación, la inteligencia emocional y la comunicación, las personas puedan conocerse mejor y encontrar aquello que realmente les apasiona, tanto a nivel personal como profesional.\n\nTambién quiero impulsar proyectos de emprendimiento social que generen un impacto positivo y fomenten la colaboración, la empatía y el crecimiento colectivo. Especialmente, me gustaría contribuir al empoderamiento de mujeres, niñas y jóvenes desde edades tempranas, acercándoles herramientas, referentes y oportunidades que les ayuden a creer en sus capacidades y construir su propio camino.\n\nEn definitiva, quiero construir personas, conexiones y proyectos con propósito que puedan generar un cambio positivo en su entorno.",
+    "contribution": [
+      "Aporto una mirada estratégica, creativa y humana a cada proyecto en el que participo. Creo firmemente en el valor de construir en equipo, compartir conocimientos y generar espacios donde las ideas puedan crecer.\n\nMi experiencia en comunicación, marketing digital y relaciones públicas me permite aportar estrategias para mejorar la forma en que los proyectos se comunican y conectan con sus audiencias. Me gusta escuchar, aportar nuevas perspectivas y acompañar a mis compañeros en el desarrollo de sus iniciativas.\n\nPara mí, comunicar no es solo transmitir un mensaje, sino hacerlo de forma clara, asertiva y auténtica, buscando generar el impacto deseado. Ya sea preparando una entrevista, una ponencia, una estrategia digital o dando forma a una nueva idea, siempre estoy dispuesta a colaborar, aportar y construir juntos."
+    ],
+    "collaboration": "6-7 horas a la semana",
+    "evidence": [
+      {
+        "title": "Intereses",
+        "detail": "Comunicación estratégica · Marketing digital · Emprendimiento social · Inteligencia emocional · Desarrollo personal · Liderazgo · Innovación · Impacto social · Empoderamiento femenino · Educación · Relaciones humanas · Creación de comunidades"
+      },
+      {
+        "title": "Habilidades",
+        "detail": "Comunicación asertiva · Liderazgo · Pensamiento estratégico · Creatividad · Marketing digital · Creación de contenidos · Comunicación en redes sociales · Trabajo en equipo · Inteligencia emocional · Empatía · Organización · Resolución de problemas · Oratoria · Gestión de proyectos · Capacidad de adaptación"
+      },
+      {
+        "title": "Idiomas",
+        "detail": "Español, inglés, italiano"
+      }
+    ],
+    "links": [
+      {
+        "label": "LinkedIn",
+        "href": "https://www.linkedin.com/in/montse-coronado-0b9b56203"
+      }
+    ]
+  },
   "alberto-sanchez-prieto": {
     "status": "Perfil completo",
     "headline": "Innovación",
@@ -2226,7 +2316,7 @@ function SectionTitle({ kicker, title, body, align = "left" }: { kicker: string;
 function StatBand() {
   return <section className="stat-band" aria-label="Cifras de la comunidad">
     <div><strong>+100</strong><span>líderes</span></div>
-    <div><strong>14</strong><span>países</span></div>
+    <div><strong>+17</strong><span>países</span></div>
     <div><strong>40+</strong><span>universidades</span></div>
     <div><strong>1</strong><span>cultura compartida</span></div>
   </section>;
@@ -2310,8 +2400,8 @@ function Inicio({ go }: { go: (page: PageKey) => void }) {
         <div className="hero-portraits" aria-label="Tres miembros de la Comunidad de Líderes Hispanoamericanos">
           <article><img src={assetPath("/images/members/michelle-rogel.webp")} alt="Michelle Rogel" /><div><strong>Michelle Rogel</strong><span>México</span></div></article>
           <article><img src={assetPath("/images/members/camila-calvo.png")} alt="Camila Calvo" /><div><strong>Camila Calvo</strong><span>Panamá</span></div></article>
-          <article><img src={assetPath("/images/members/santiago-narino-rivera.jpeg")} alt="Santiago Nariño Rivera" /><div><strong>Santiago Nariño Rivera</strong><span>Colombia</span></div></article>
-          <div className="portrait-metric"><strong>+100</strong><span>líderes · 14 países</span></div>
+          <article><img src={assetPath("/images/members/martina-leich.webp")} alt="Martina Leicht" /><div><strong>Martina Leicht</strong><span>Uruguay</span></div></article>
+          <div className="portrait-metric"><strong>+100</strong><span>líderes · +17 países</span></div>
         </div>
       </div>
       <div className="stat-band-frame"><div className="shell"><StatBand /></div></div>
@@ -2355,7 +2445,7 @@ function Inicio({ go }: { go: (page: PageKey) => void }) {
             <img src={assetPath("/images/members/valeria-riojas-davila.webp")} alt="" />
             <img src={assetPath("/images/members/vivianna-reynold.webp")} alt="" />
           </div>
-          <span>14 países conectados</span>
+          <span>+17 países conectados</span>
         </div>
         <div><Kicker>Presencia internacional</Kicker><h2>Una misma cultura, en distintos países.</h2><p>La dimensión internacional de CLH consiste en crear relaciones operativas entre personas que estudian, trabajan y construyen en contextos diferentes, pero comparten una misma exigencia.</p><p>Una oportunidad detectada en un país puede convertirse en una colaboración, una investigación o un proyecto entre varios mercados.</p><Button onClick={() => go("miembros")}>Conoce a nuestros miembros</Button></div>
       </div>
@@ -2627,7 +2717,7 @@ function Organizaciones({ go }: { go: (page: PageKey) => void }) {
   };
 
   return <>
-    <PageHero eyebrow="Para organizaciones" title="Activa, entiende y conecta con la nueva generación universitaria en varios mercados." body="CLH coordina una red de más de 100 líderes jóvenes en 14 países y más de 40 universidades. Convertimos ese alcance en investigación, embajadores, retos y proyectos con ejecución local." images={["/images/members/jorge-calderon.webp", "/images/members/fabian-rivera.webp", "/images/members/gilberto-ceballos.webp", "/images/members/oscar-jose-pleites.webp"]}><Button variant="light" onClick={() => document.getElementById("form-reto")?.scrollIntoView({behavior:"smooth"})}>Cuéntanos tu reto</Button><Button variant="ghost" onClick={() => document.getElementById("capacidades")?.scrollIntoView({behavior:"smooth"})}>Conoce nuestras capacidades</Button></PageHero>
+    <PageHero eyebrow="Para organizaciones" title="Activa, entiende y conecta con la nueva generación universitaria en varios mercados." body="CLH coordina una red de más de 100 líderes jóvenes en +17 países y más de 40 universidades. Convertimos ese alcance en investigación, embajadores, retos y proyectos con ejecución local." images={["/images/members/jorge-calderon.webp", "/images/members/fabian-rivera.webp", "/images/members/gilberto-ceballos.webp", "/images/members/oscar-jose-pleites.webp"]}><Button variant="light" onClick={() => document.getElementById("form-reto")?.scrollIntoView({behavior:"smooth"})}>Cuéntanos tu reto</Button><Button variant="ghost" onClick={() => document.getElementById("capacidades")?.scrollIntoView({behavior:"smooth"})}>Conoce nuestras capacidades</Button></PageHero>
     <section className="section shell split-story"><div><Kicker>Propuesta de valor</Kicker><h2>Coordinación central. Perspectiva joven. Ejecución entre países.</h2></div><div><p>Construir presencia universitaria en varios mercados suele exigir equipos y relaciones diferentes en cada país. CLH ya cuenta con una comunidad conectada, responsables locales y una cultura común.</p><p>Una organización puede utilizar esta infraestructura para comparar percepciones, activar campañas o trabajar con equipos internacionales sin empezar de cero en cada mercado.</p></div></section>
     <section id="capacidades" className="section soft-section"><div className="shell"><SectionTitle kicker="Capacidades" title="Una misma estructura, distintas formas de colaboración." /><div className="capability-list">{capabilities.map((item) => <article key={item.number}><span>{item.number}</span><h3>{item.title}</h3><p>{item.summary}</p>{item.destination ? <button onClick={() => go(item.destination!)}>Conocer la Cumbre <i>↗</i></button> : <button aria-haspopup="dialog" onClick={() => setActiveCapability(item)}>Ver aplicación <i>↗</i></button>}</article>)}</div></div></section>
     <section className="section shell audience-split"><article><Kicker>Para empresas</Kicker><h2>Una relación más profunda con el talento y el consumidor joven.</h2><p>Trabajamos con áreas de Talento, Marketing, Innovación, Expansión e Investigación que necesiten comprender y activar a la generación universitaria en España y Latinoamérica.</p></article><article><Kicker>Para universidades e instituciones</Kicker><h2>Conectar oportunidades, proyectos y personas entre países.</h2><p>Colaboraciones para abrir experiencias internacionales, identificar talento e impulsar el liderazgo de estudiantes dentro de una red hispanohablante.</p></article></section>
@@ -2683,7 +2773,7 @@ function Header({ page, go }: { page: PageKey; go: (page: PageKey) => void }) {
   const [open, setOpen] = useState(false);
   const [communityOpen, setCommunityOpen] = useState(false);
   const nav = (target: PageKey) => { go(target); setOpen(false); setCommunityOpen(false); };
-  return <header className="site-header"><div className="shell header-inner"><button className="brand" onClick={() => nav("inicio")} aria-label="Ir al inicio"><strong>CLH</strong><span>Comunidad de Líderes<br />Hispanoamericanos</span></button><button className="menu-toggle" onClick={() => setOpen(!open)} aria-expanded={open} aria-label="Abrir menú"><span></span><span></span></button><nav className={open ? "main-nav open" : "main-nav"} aria-label="Navegación principal"><button className={page === "inicio" ? "active" : ""} onClick={() => nav("inicio")}>Inicio</button><div className="nav-group"><button className={["comunidad","capitales","miembros","cultura"].includes(page) ? "active" : ""} aria-expanded={communityOpen} onClick={() => setCommunityOpen(!communityOpen)}>La comunidad <span>⌄</span></button><div className={communityOpen ? "dropdown open" : "dropdown"}><button onClick={() => nav("comunidad")}>Qué es CLH</button><button onClick={() => nav("capitales")}>Los 4 pilares de la comunidad</button><button onClick={() => nav("miembros")}>Nuestros miembros</button><button onClick={() => nav("cultura")}>Cultura, visión y misión</button></div></div><button className={page === "beway" ? "active" : ""} onClick={() => nav("beway")}>Beway</button><button className={page === "semana" ? "active" : ""} onClick={() => nav("semana")}>Cumbre CLH × Beway</button><button className={page === "organizaciones" ? "active" : ""} onClick={() => nav("organizaciones")}>Organizaciones</button><button className={page === "ideas" ? "active" : ""} onClick={() => nav("ideas")}>El Rincón de las Ideas</button><button className="nav-cta" onClick={() => nav("contacto")}>Colabora con CLH <span>↗</span></button></nav></div></header>;
+  return <header className="site-header"><div className="shell header-inner"><button className="brand" onClick={() => nav("inicio")} aria-label="Ir al inicio"><img src={assetPath("/images/clh-logo.png")} alt="CLH · Comunidad de Líderes Hispanoamericanos" width="641" height="134" /></button><button className="menu-toggle" onClick={() => setOpen(!open)} aria-expanded={open} aria-label="Abrir menú"><span></span><span></span></button><nav className={open ? "main-nav open" : "main-nav"} aria-label="Navegación principal"><button className={page === "inicio" ? "active" : ""} onClick={() => nav("inicio")}>Inicio</button><div className="nav-group"><button className={["comunidad","capitales","miembros","cultura"].includes(page) ? "active" : ""} aria-expanded={communityOpen} onClick={() => setCommunityOpen(!communityOpen)}>La comunidad <span>⌄</span></button><div className={communityOpen ? "dropdown open" : "dropdown"}><button onClick={() => nav("comunidad")}>Qué es CLH</button><button onClick={() => nav("capitales")}>Los 4 pilares de la comunidad</button><button onClick={() => nav("miembros")}>Nuestros miembros</button><button onClick={() => nav("cultura")}>Cultura, visión y misión</button></div></div><button className={page === "beway" ? "active" : ""} onClick={() => nav("beway")}>Beway</button><button className={page === "semana" ? "active" : ""} onClick={() => nav("semana")}>Cumbre CLH × Beway</button><button className={page === "organizaciones" ? "active" : ""} onClick={() => nav("organizaciones")}>Organizaciones</button><button className={page === "ideas" ? "active" : ""} onClick={() => nav("ideas")}>El Rincón de las Ideas</button><button className="nav-cta" onClick={() => nav("contacto")}>Colabora con CLH <span>↗</span></button></nav></div></header>;
 }
 
 function Footer({ go }: { go: (page: PageKey) => void }) {
