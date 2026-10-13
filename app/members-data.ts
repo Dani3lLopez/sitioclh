@@ -109,7 +109,8 @@ export const members: Member[] = [
     "area": "Marketing digital",
     "role": "Líder de Marketing",
     "slug": "montse-coronado",
-    "image": null,
+    "image": "/images/members/montse-coronado.jpg",
+    "video": "/videos/montse-coronado.mp4",
     "linkedIn": "https://www.linkedin.com/in/montse-coronado-0b9b56203",
     "featured": false
   },
@@ -159,7 +160,7 @@ export const members: Member[] = [
     "area": "Criminología y Seguridad",
     "role": "Marketing",
     "slug": "andrea-venegas",
-    "image": null,
+    "image": "/images/members/andrea-venegas.jpg",
     "linkedIn": "https://www.linkedin.com/in/andrea-venegas-de-la-rosa-a34162365",
     "featured": false
   },
@@ -300,7 +301,8 @@ export const members: Member[] = [
     "area": "Ingeniería Aeroespacial y Tecnología",
     "role": "Tecnología",
     "slug": "geronimo-urti",
-    "image": null,
+    "image": "/images/members/geronimo-urti.jpg",
+    "video": "/videos/geronimo-urti.mp4",
     "linkedIn": "https://www.linkedin.com/in/gerónimo-urti-cestau-5a91ba205",
     "featured": false
   },
