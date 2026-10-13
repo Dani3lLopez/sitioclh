@@ -195,7 +195,7 @@ const memberPilotProfiles: Record<string, {
     ]
   },
   "geronimo-urti": {
-    "status": "Tecnología e Innovación",
+    "status": "Tecnología",
     "headline": "Estudiante de Ingeniería Civil Mecánica | Innovación, ingeniería aeroespacial y liderazgo de equipos | Uruguay / Chile",
     "bio": "Gerónimo Urti Cestau es estudiante de Ingeniería Civil Mecánica en la Universidad Adolfo Ibáñez, con foco en tecnología aeroespacial, robótica e innovación. De nacionalidad mexicana y uruguaya, vivió en Argentina y hoy vive en Chile, y combina formación técnica con liderazgo de equipos interdisciplinarios. Ha liderado el desarrollo de un sistema de drones autónomos para la detección temprana de incendios forestales y participa en el diseño estructural de un nanosatélite universitario. Actualmente impulsa la fundación de NEXO UAI, un club de innovación interdisciplinario, y es Community & Engagement Coordinator en Space Pathways | Rutas al Espacio, iniciativa del Space Generation Advisory Council (SGAC) Chile que acerca a nuevas generaciones las trayectorias de profesionales del sector espacial chileno. Fuera de lo académico, juega rugby competitivo en Old Locks.",
     "motivation": "Quiero construir espacios donde el talento joven encuentre con quién trabajar, sin importar en qué país o universidad esté. Creo que la tecnología puede acercar a las personas correctas, y que las mejores ideas nacen cuando se juntan miradas de distintos rincones de Hispanoamérica.",

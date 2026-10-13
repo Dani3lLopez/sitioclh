@@ -298,7 +298,7 @@ export const members: Member[] = [
     "country": "Chile",
     "university": "Universidad Adolfo Ibáñez",
     "area": "Ingeniería Aeroespacial y Tecnología",
-    "role": "Tecnología e Innovación",
+    "role": "Tecnología",
     "slug": "geronimo-urti",
     "image": null,
     "linkedIn": "https://www.linkedin.com/in/gerónimo-urti-cestau-5a91ba205",
