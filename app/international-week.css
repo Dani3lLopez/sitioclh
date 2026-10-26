@@ -1,0 +1,153 @@
+#clh-international-week{--clh-navy:var(--navy);--clh-paper:var(--paper);--clh-white:#fff;--clh-gold:var(--gold);--clh-ink:#15152b;--clh-muted:#606077;--clh-rule:#deddd5;--clh-tint:#eeede5;color:var(--clh-ink);background:var(--clh-paper);font-family:Arial,Helvetica,sans-serif;line-height:1.5;color-scheme:light;width:100%}
+    #clh-international-week *{box-sizing:border-box;color:inherit}
+    #clh-international-week h1,#clh-international-week h2,#clh-international-week h3,#clh-international-week p{margin:0}
+    #clh-international-week button,#clh-international-week a{font:inherit}
+    #clh-international-week a{color:inherit;text-decoration:none}
+    #clh-international-week .clh-hero{display:grid;grid-template-columns:1.04fr 1fr;background:var(--clh-navy);color:var(--clh-white)}
+    #clh-international-week .clh-hero-copy{padding:46px 8% 44px 10%;display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+    #clh-international-week .clh-eyebrow{font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--clh-navy)}
+    #clh-international-week .clh-hero .clh-eyebrow{color:#e0b951}
+    #clh-international-week h1{font-size:clamp(36px,5.8vw,62px);letter-spacing:-.055em;line-height:1.02;font-weight:700;margin:19px 0;color:var(--clh-white)}
+    #clh-international-week .clh-hero-subtitle{font-size:15px;line-height:1.65;max-width:380px;color:#e4e3ee}
+    #clh-international-week .clh-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:25px}
+    #clh-international-week .clh-action{display:inline-flex;align-items:center;justify-content:center;min-height:43px;padding:11px 17px;gap:10px;background:var(--clh-gold);color:var(--clh-navy);font-size:11px;font-weight:700;border:0}
+    #clh-international-week .clh-action.secondary{background:transparent;color:var(--clh-white);border:1px solid #78768e}
+    #clh-international-week .clh-hero-photo{min-width:0;position:relative;min-height:382px;overflow:hidden}
+    #clh-international-week .clh-hero-photo img{display:block;width:100%;height:100%;object-fit:cover;position:absolute;inset:0;object-position:55% 50%}
+    #clh-international-week .clh-photo-caption{position:absolute;bottom:0;right:0;background:var(--clh-paper);color:var(--clh-navy);padding:18px 25px;font-size:10px;letter-spacing:.1em;text-transform:uppercase}
+    #clh-international-week .clh-photo-caption strong{display:block;font-size:23px;letter-spacing:-.03em;text-transform:none}
+    #clh-international-week .clh-facts{display:grid;grid-template-columns:1.05fr 1.1fr .9fr;padding:22px 5%;gap:24px;background:var(--clh-white);border-bottom:1px solid var(--clh-rule)}
+    #clh-international-week .clh-fact{display:flex;gap:11px;align-items:flex-start;min-width:0}
+    #clh-international-week .clh-fact i{color:var(--clh-gold);margin-top:2px;flex-shrink:0}
+    #clh-international-week .clh-fact svg{width:18px;height:18px;flex-shrink:0}
+    #clh-international-week .clh-fact strong{display:block;font-size:11px;font-weight:700;color:var(--clh-navy)}
+    #clh-international-week .clh-fact span{display:block;font-size:10px;color:var(--clh-muted);margin-top:2px}
+    #clh-international-week .clh-section{padding:36px 5%}
+    #clh-international-week .clh-section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:22px}
+    #clh-international-week h2{font-size:29px;letter-spacing:-.04em;line-height:1.15;font-weight:700;margin-top:7px;color:var(--clh-navy)}
+    #clh-international-week .clh-section-head>p{color:var(--clh-muted);max-width:260px;font-size:11px}
+    #clh-international-week .clh-experiences{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:25px}
+    #clh-international-week .clh-experience{border-top:2px solid var(--clh-navy);padding-top:15px}
+    #clh-international-week .clh-experience .clh-index{font-size:11px;color:var(--clh-muted);letter-spacing:.09em}
+    #clh-international-week h3{font-size:18px;font-weight:700;letter-spacing:-.025em;margin:7px 0;color:var(--clh-navy)}
+    #clh-international-week .clh-experience p{font-size:11px;line-height:1.7;color:var(--clh-muted)}
+    #clh-international-week .clh-programme{background:var(--clh-white)}
+    #clh-international-week .clh-days{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-bottom:1px solid var(--clh-rule);gap:6px}
+    #clh-international-week .clh-day{padding:12px 10px 14px;background:transparent;border:0;border-bottom:3px solid transparent;text-align:left;color:var(--clh-muted);font-size:11px;min-height:53px}
+    #clh-international-week .clh-day strong{display:block;font-size:15px;color:var(--clh-navy);margin-bottom:2px}
+    #clh-international-week .clh-day[aria-selected="true"]{border-bottom-color:var(--clh-gold);color:var(--clh-navy);background:var(--clh-paper)}
+    #clh-international-week .clh-day-panel{display:grid;grid-template-columns:.8fr 1.5fr;gap:35px;padding-top:23px}
+    #clh-international-week .clh-day-title{font-size:21px;font-weight:700;letter-spacing:-.03em;color:var(--clh-navy)}
+    #clh-international-week .clh-day-description{font-size:11px;color:var(--clh-muted);margin-top:7px;max-width:230px}
+    #clh-international-week .clh-session{display:grid;grid-template-columns:84px 1fr;gap:14px;padding:11px 0;border-bottom:1px solid var(--clh-rule)}
+    #clh-international-week .clh-session:first-child{padding-top:0}
+    #clh-international-week .clh-time{font-size:10px;font-weight:700;color:var(--clh-muted);font-variant-numeric:tabular-nums;padding-top:2px}
+    #clh-international-week .clh-session-name{font-size:12px;font-weight:700;line-height:1.4;color:var(--clh-navy)}
+    #clh-international-week .clh-speaker{font-size:11px;color:var(--clh-muted);margin-top:4px}
+    #clh-international-week .clh-campus{background:var(--clh-navy);color:var(--clh-white);display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+    #clh-international-week .clh-campus .clh-eyebrow{color:#e0b951}
+    #clh-international-week .clh-campus h2{font-size:34px;max-width:380px;margin:10px 0 15px;color:var(--clh-white)}
+    #clh-international-week .clh-campus p{font-size:12px;line-height:1.8;color:#dedde9;max-width:390px}
+    #clh-international-week .clh-campus-steps{margin:0;padding:0;list-style:none}
+    #clh-international-week .clh-campus-steps li{display:flex;align-items:baseline;gap:17px;border-bottom:1px solid #45435e;padding:15px 0}
+    #clh-international-week .clh-campus-steps span{font-size:10px;color:#e0b951}
+    #clh-international-week .clh-campus-steps strong{font-size:15px;font-weight:500;letter-spacing:-.02em}
+    #clh-international-week .clh-practical{display:grid;grid-template-columns:1fr 1.25fr;gap:44px}
+    #clh-international-week .clh-practical-intro{font-size:12px;color:var(--clh-muted);line-height:1.75;margin-top:14px;max-width:300px}
+    #clh-international-week details{border-top:1px solid var(--clh-rule);font-size:12px;padding:13px 0}
+    #clh-international-week details:last-child{border-bottom:1px solid var(--clh-rule)}
+    #clh-international-week summary{font-weight:700;list-style:revert;min-height:23px;color:var(--clh-navy)}
+    #clh-international-week details p{padding-top:9px;color:var(--clh-muted);font-size:11px;line-height:1.7}
+    #clh-international-week .clh-bottom{padding:25px 5%;background:var(--clh-tint);display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+    #clh-international-week .clh-bottom strong{font-size:22px;letter-spacing:-.04em;color:var(--clh-navy)}
+    #clh-international-week .clh-bottom p{font-size:11px;color:var(--clh-muted);margin-top:4px}
+    #clh-international-week .clh-partners{padding:20px 5%;display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap;background:var(--clh-white)}
+    #clh-international-week .clh-partners div{font-size:11px;color:var(--clh-navy)}
+    #clh-international-week .clh-partners small{display:block;font-size:9px;color:var(--clh-muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
+    #clh-international-week .clh-partners strong{font-size:14px;font-weight:700}
+    @media(max-width:650px){
+      #clh-international-week .clh-hero{grid-template-columns:1fr}
+      #clh-international-week .clh-hero-copy{padding:32px 6%}
+      #clh-international-week h1{font-size:46px;max-width:480px;margin:16px 0}
+      #clh-international-week .clh-hero-subtitle{font-size:14px;max-width:460px}
+      #clh-international-week .clh-hero-photo{min-height:200px}
+      #clh-international-week .clh-photo-caption{padding:10px 18px}
+      #clh-international-week .clh-photo-caption strong{font-size:19px}
+      #clh-international-week .clh-facts{grid-template-columns:1fr;padding:22px 6%;gap:16px}
+      #clh-international-week .clh-fact strong{font-size:12px}
+      #clh-international-week .clh-fact span{font-size:11px}
+      #clh-international-week .clh-section{padding:30px 6%}
+      #clh-international-week .clh-section-head{display:block}
+      #clh-international-week .clh-section-head>p{max-width:none;margin-top:10px;font-size:12px}
+      #clh-international-week h2{font-size:27px}
+      #clh-international-week .clh-experiences{grid-template-columns:1fr;gap:24px}
+      #clh-international-week .clh-experience p{font-size:12px}
+      #clh-international-week .clh-days{display:flex;flex-wrap:wrap;gap:4px}
+      #clh-international-week .clh-day{flex:1 1 90px;padding:10px 8px;min-height:64px}
+      #clh-international-week .clh-day strong{font-size:14px}
+      #clh-international-week .clh-day-panel{grid-template-columns:1fr;gap:20px}
+      #clh-international-week .clh-day-description{max-width:none;font-size:12px}
+      #clh-international-week .clh-session{grid-template-columns:74px 1fr;gap:10px}
+      #clh-international-week .clh-session-name{font-size:12px}
+      #clh-international-week .clh-campus,#clh-international-week .clh-practical{grid-template-columns:1fr;gap:22px}
+      #clh-international-week .clh-campus h2{font-size:31px}
+      #clh-international-week .clh-practical-intro{max-width:none}
+      #clh-international-week .clh-bottom,#clh-international-week .clh-partners{padding:24px 6%}
+    }
+    @media(max-width:360px){#clh-international-week h1{font-size:40px}#clh-international-week .clh-actions{gap:8px}#clh-international-week .clh-action{padding:11px 12px}}
+
+/* Keep the approved layout readable at the full website's scale. */
+#clh-international-week .clh-section,
+#clh-international-week .clh-facts,
+#clh-international-week .clh-bottom,
+#clh-international-week .clh-partners {
+  padding-left: max(24px, calc((100% - 1240px) / 2));
+  padding-right: max(24px, calc((100% - 1240px) / 2));
+}
+#clh-international-week .clh-section { padding-top: 56px; padding-bottom: 56px; }
+#clh-international-week .clh-hero-copy { padding: 62px 42px 62px max(30px, calc((100vw - 1240px) / 2)); }
+#clh-international-week h1 { font-size: clamp(44px, 5.6vw, 76px); }
+#clh-international-week h2 { font-size: 36px; }
+#clh-international-week h3 { font-size: 22px; }
+#clh-international-week .clh-hero-subtitle { font-size: 17px; max-width: 470px; }
+#clh-international-week .clh-eyebrow { font-size: 12px; }
+#clh-international-week .clh-action { min-height: 48px; font-size: 13px; cursor: pointer; }
+#clh-international-week .clh-photo-caption { font-size: 12px; }
+#clh-international-week .clh-fact strong { font-size: 14px; }
+#clh-international-week .clh-fact span { font-size: 13px; }
+#clh-international-week .clh-experience .clh-index { font-size: 12px; }
+#clh-international-week .clh-experience p { font-size: 14px; }
+#clh-international-week .clh-section-head > p { font-size: 14px; max-width: 330px; }
+#clh-international-week .clh-day { font-size: 12px; min-height: 78px; cursor: pointer; }
+#clh-international-week .clh-day strong { font-size: 17px; }
+#clh-international-week .clh-day-title { margin: 0; font-size: 25px; }
+#clh-international-week .clh-day-description { font-size: 14px; max-width: 300px; }
+#clh-international-week .clh-time { font-size: 12px; }
+#clh-international-week .clh-session { grid-template-columns: 98px minmax(0, 1fr); }
+#clh-international-week .clh-session-name { margin: 0; font-size: 14px; }
+#clh-international-week .clh-speaker { font-size: 13px; }
+#clh-international-week .clh-campus h2 { font-size: 40px; max-width: 520px; }
+#clh-international-week .clh-campus p { font-size: 15px; max-width: 500px; }
+#clh-international-week .clh-campus-steps span { font-size: 12px; }
+#clh-international-week .clh-campus-steps strong { font-size: 20px; }
+#clh-international-week .clh-practical-intro { font-size: 15px; max-width: 400px; }
+#clh-international-week details { font-size: 14px; }
+#clh-international-week summary { cursor: pointer; min-height: 30px; }
+#clh-international-week details p { font-size: 14px; }
+#clh-international-week .clh-bottom h2 { margin: 0; font-size: 30px; }
+#clh-international-week .clh-bottom p { font-size: 13px; overflow-wrap: anywhere; }
+#clh-international-week .clh-partners small { font-size: 11px; }
+#clh-international-week .clh-partners strong { font-size: 16px; }
+#clh-international-week #week-programme,
+#clh-international-week #week-contact { scroll-margin-top: 110px; }
+@media (max-width: 650px) {
+  #clh-international-week .clh-hero-copy { padding: 34px 24px; }
+  #clh-international-week .clh-section { padding-top: 36px; padding-bottom: 36px; }
+  #clh-international-week h1 { font-size: clamp(40px, 10vw, 52px); }
+  #clh-international-week h2 { font-size: 30px; }
+  #clh-international-week .clh-campus h2 { font-size: 32px; }
+  #clh-international-week .clh-day { flex-basis: 90px; }
+  #clh-international-week .clh-session { grid-template-columns: 88px minmax(0, 1fr); gap: 10px; }
+  #clh-international-week .clh-photo-caption { padding: 12px 18px; font-size: 11px; }
+  #clh-international-week .clh-photo-caption strong { font-size: 18px; }
+}
